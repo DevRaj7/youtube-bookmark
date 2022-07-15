@@ -1,5 +1,6 @@
 (() => {
   let youtubeLeftControls, youtubePlayer;
+ 
   let currentVideo = "";
   let currentVideoBookmarks = [];
 
@@ -15,7 +16,7 @@
     const currentTime = youtubePlayer.currentTime;
     const newBookmark = {
       time: currentTime,
-      desc: "Bookmark at " + getTime(currentTime),
+      desc: "Timestamp at " + getTime(currentTime),
     };
 
     currentVideoBookmarks = await fetchBookmarks();
@@ -65,8 +66,7 @@
 })();
 
 const getTime = t => {
-  var date = new Date(0);
-  date.setSeconds(t);
-
-  return date.toISOString().substring(11, 0);
+  var measuredTime = new Date(null);
+measuredTime.setSeconds(t); // specify value of SECONDS
+return measuredTime.toISOString().substring(11, 22);
 };
